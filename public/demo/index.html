@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>无插件版</title>
+    <link href="css/demo.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="js/lang/cn.js"></script>
+</head>
+
+<body>
+    <div class="video-block J-video-block">
+        <video id="video-264" muted="muted"></video>
+        <canvas id="video-265" muted></canvas>
+        <canvas id="canvas-enlarge"></canvas>
+        <img src="img/loading.gif" class="loading J-loading">
+    </div>
+    <!--    <div class="showText"></div>-->
+
+    <div class="playback-block J-playback-block">
+        <canvas id='timeline' class="timeline"></canvas>
+        <div class="zoom">
+            <em class="narrow J-scale-control" data-id="0"></em>
+            <em class="enlarge J-scale-control" data-id="1"></em>
+        </div>
+    </div>
+
+    <div id="content"></div>
+
+    <script type="text/html" id="template">
+        <div class="device-info" style="display: none">
+            <div>
+                <label>{{=language.chooseLanguage}}</label>
+                <select class="lanSelect">
+                    <option value="cn">{{=language.cn}}</option>
+                    <option value="en">{{=language.en}}</option>
+                </select>
+            </div>
+            <label>{{=deviceinfo.deviceSN}}</label><input type="text" class="J-device-id" value=""><br><!-- 8701875848935 -->
+            <label>{{=deviceinfo.deviceAccount}}</label><input type="text" class="J-user" value=""><br>
+            <label>{{=deviceinfo.devicePassword}}</label><input type="text" class="J-password" value=""><br>
+            <label>{{=deviceinfo.labChannel}}</label><input type="text" class="J-channel" value=""><br>
+            <div class="J-stream-block stream-block"><label>{{=deviceinfo.codeStreamSelection}}</label><select
+                    class="J-stream"></select><br></div>
+            <label>{{=deviceinfo.videoType}}</label>
+            <select class="J-video-type">
+                <option value="livevideo">{{=deviceinfo.live}}</option>
+                <option value="remoteplayback">{{=deviceinfo.playBack}}</option>
+            </select>
+            <br>
+            <div class="playback-block J-playback-block">
+                <div class="J-select-time">
+                    <label>{{=deviceinfo.selectTime}}</label><input type="text" class="J-calendar" readonly><br>
+                </div>
+            </div>
+            <label>{{=deviceinfo.labDeviceStatus}}</label><span class="J-status status"></span><button
+                class="J-refresh-status">{{=deviceinfo.labRefresh}}</button><br>
+        </div>
+
+        <div class="btn-block">
+            <button id="btn" class="J-play" style="display: none">{{=videoplay.play}}</button>
+            <!--<button class="J-stop">{{=videoplay.stop}}</button>-->
+            <!--<button class="J-play-audio">{{=videoplay.turnOnAudio}}</button>-->
+            <!--<button class="J-stop-audio">{{=videoplay.turnOffAudio}}</button>-->
+            <!--<button class="J-enlarge">{{=videoplay.electronicAmplification}}</button>-->
+            <!--<button class="J-capture">{{=lang.videoplay.labCapture}}</button>-->
+            <!--<button class="J-full-screen">全屏</button>-->
+            <!--<button class="J-ptz" data-id="17">{{=videoplay.adjustFocus}}+</button>-->
+            <!--<button class="J-ptz" data-id="19">{{=videoplay.adjustFocus}}-</button>-->
+	        <span>移动摄像头：</span>
+	        <img src="img/goup.png" alt="up" class="J-ptz" data-id="1">
+	        <img src="img/godown.png" alt="down" class="J-ptz" data-id="3">
+	        <img src="img/goleft.png" alt="left" class="J-ptz" data-id="5">
+	        <img src="img/goright.png" alt="right" class="J-ptz" data-id="7">
+	        <img src="img/add.png" alt="right" class="J-ptz" data-id="21">
+	        <img src="img/reduce.png" alt="right" class="J-ptz" data-id="23">
+            <!--<button class="J-ptz" data-id="1">{{=videoplay.up}}</button>-->
+            <!--<button class="J-ptz" data-id="3">{{=videoplay.down}}</button>-->
+            <!--<button class="J-ptz" data-id="5">{{=videoplay.left}}</button>-->
+            <!--<button class="J-ptz" data-id="7">{{=videoplay.right}}</button>-->
+            <!--<button class="J-ptz" data-id="21">{{=videoplay.focusing}}+</button>-->
+            <!--<button class="J-ptz" data-id="23">{{=videoplay.focusing}}-</button>-->
+            <div id="txt">
+                <span class="s_b"> <b class="b1"></b> <b class="b2"></b></span>
+                <div class="info">{{=videoplay.tryKeepPressing}}</div>
+                <span class="s_b"><b class="b2"></b> <b class="b1"></b></span>
+                <span class="s_i"> <i class="i6"></i> <i class="i5"></i> <i class="i4"></i> <i class="i3"></i> <i
+                        class="i2"></i> <i class="i1"></i></span>
+            </div>
+            <a class="capture"></a>
+        </div>
+    </script>
+</body>
+
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/jquery-ui.min.js"></script>
+<script src="js/common/jquery.cookies.js"></script>
+<script src="js/common/LAB.min.js"></script>
+<script src="js/common/sdkBitdog.js"></script>
+<script src="js/demo/demo.js"></script>
+<script src="js/video/wfs.js"></script>
+<script src="js/video/libde265-wasm.js"></script>
+<script src="js/audio/g7712pcm.js"></script>
+<script src="js/audio/pcm-player.js"></script>
+<script src="js/demo/playback.js"></script>
+<script src="js/demo/template.js"></script>
+<script type="text/javascript">
+	// setTimeout(function () {
+	// 	$('#btn').click();
+	// },1500)
+	window.addEventListener('message',function(e){
+		console.log(e.origin,e.data)//子页面接收参数
+		var item = e.data
+		$(".J-device-id").val(item.sn)
+		$(".J-user").val(item.account)
+		$(".J-password").val(item.password)
+		$(".J-channel").val(item.channel)
+		setTimeout(function () {
+			$('#btn').click();
+		},1000)
+	})
+</script>
+<style>
+	.J-ptz{
+		height: 25px;
+		margin-right: 10px;
+	}
+	.btn-block{
+		display: flex;
+		align-items: center;
+		height: 37px;
+		background: #D2EEFF;
+		box-shadow: 0px 22px 25px 0px rgba(9,28,56,0.61);
+		border-radius: 0px 0px 8px 8px;
+		padding: 0 20px;
+		width: 552px;
+		box-sizing: border-box;
+		margin: 0;
+		border: none;
+
+	}
+	.J-video-block{
+		width:550px;
+		border-radius: 8px 8px 0 0;
+		/*height:580px;*/
+		background: #fff;
+	}
+	.J-loading{
+		left: 230px;
+	}
+</style>
+</html>

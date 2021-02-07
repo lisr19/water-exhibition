@@ -1,0 +1,83 @@
+var lang = {
+    "login": {
+        "labInputUserAndPsw": "Please enter the device account and password separated by commas.Format：admin,admin"
+    },
+    "localviewer": {
+        "labPleaseSetDate": "Please set date first.",
+    },
+    "tip": {
+        "updateDeviceStatusSuccess": "Update device status succeeded",
+        "updateDeviceStatusFail": "Failed to update device status"
+    },
+    "language": {
+        "chooseLanguage": "Choose Language：",
+        "cn": "中文",
+        "en": "English",
+    },
+    "deviceinfo": {
+        "deviceSN": "Device SN：",
+        "deviceAccount": "Device Account：",
+        "devicePassword": "Device Password：",
+        "labChannel": "Lab Channel：",
+        "codeStreamSelection": "CodeStream Selection：",
+        "videoType": "video Type：",
+        "live": "live",
+        "playBack": "playBack",
+        "selectTime": "selectTime：",
+        "labIncorrectInfo": "Wrong name or password",
+        "labCloseConnect": "Close connection",
+        "labError": "error",
+        "labSettingFail": "Setup failed",
+        "labSettingSuccess": "Setup succeeded",
+        "labSessionFull": "Session full",
+        "labCreateSessionSuccess": "Session created successfully",
+        "labCreateSessionFail": "Failed to create session",
+        "labDeviceRestart": "The device is about to restart...",
+        "labFormatting": "Formatting...",
+        "labGetClientInfoFail": "Failed to get client information",
+        "labGetChannelInfoFail": "Failed to get channel information",
+        "labGetPlaybackVideoFail": "Failed to obtain playback video information",
+        "labIncorrectOperation": "Wrong operation",
+        "labLoginFail": "Login failed",
+        "labNoLogin": "Not logged in",
+        "labQequestFail": "request was aborted",
+        "labUnKnownError": "unknown error",
+        "labMotionDetection": "Movement detection",
+        "labtipsNoDevice": "The device is not online",
+        "labDeviceStatus": "Device Status：",
+        "labOnline": "Online",
+        "labNotOnline": "Not Online",
+        "labRefresh": "Refresh",
+        "labError":"Incomplete information, fill in again"
+    },
+    "videoplay": {
+        "play": "play",
+        "stop": "stop",
+        "turnOnAudio": "turnOnAudio",
+        "turnOffAudio": "turnOffAudio",
+        "electronicAmplification": "electronicAmplification",
+        "adjustFocus": "adjustFocus",
+        "up": "up",
+        "down": "down",
+        "left": "left",
+        "right": "right",
+        "focusing": "focusing",
+        "tryKeepPressing": "KeepPressing",
+        "labVideoInfoMistake": "Failed to play video information",
+        "labNoVideo": "No video playback",
+        "labPlayVideoFail": "Failed to play video",
+        "labCreateSessionFail": "No response to create session",
+        "labCreateRelaySessionFail": "Failed to create relay session",
+        "labNonSupportStreamType": "Unsupported stream type",
+        "labHD": "HD",
+        "labBD": "BD",
+        "labFluent": "Fluent",
+        "labNonSupportStreamType": "Unsupported stream type",
+        "labTip":"The resolution is too high, please switch to a lower resolution to ensure the video quality",
+        "labCapture":"Screenshot",
+        "screenshotTips":"H.264 screenshots are not currently supported"
+    },
+    "remoteplayback": {
+        "noRecord": "No Record"
+    }
+}

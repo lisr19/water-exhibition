@@ -1,0 +1,231 @@
+button {
+    cursor: pointer;
+}
+
+/*视频播放区*/
+.video-block {
+    width: 720px;
+    height: 480px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-block video,
+.video-block canvas#video-265,
+.video-block canvas#canvas-enlarge {
+    width: 100%;
+    height: 100%;
+    display: none;
+    object-fit: fill;
+}
+
+.showText {
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    float: right;
+    overflow: scroll;
+    border: 2px solid salmon;
+    background-color: sandybrown;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: indigo;
+    /* font: italic small-caps bold 18px,arial,sans-serif; */
+}
+
+
+#txt {
+    width: 58px;
+    clear: both;
+    font: 15px/1.125 Arial;
+    display: none;
+    z-index: 9999;
+    position: absolute;
+}
+
+#txt .s_b b,
+#txt span.s_i i {
+    font-size: 1px;
+    line-height: 1px;
+    overflow: hidden;
+    display: block;
+    clear: both;
+    z-index: 9999;
+}
+
+#txt .s_b b,
+#txt span.s_i i,
+#txt .info {
+    background: #FAFFF0;
+    border: #000 solid;
+    z-index: 9999;
+}
+
+#txt b.b1 {
+    border-width: 1px 0 0 0;
+    margin: 0 2px;
+    height: 0px;
+    z-index: 9999;
+}
+
+#txt b.b2 {
+    border-width: 0 1px;
+    margin: 0 1px;
+    height: 1px;
+    z-index: 9999;
+}
+
+#txt span.s_i i {
+    height: 1px;
+    border-width: 0 1px;
+    z-index: 9999;
+}
+
+#txt .i1 {
+    width: 0px;
+    margin-left: 6px;
+    z-index: 9999;
+}
+
+#txt .i2 {
+    width: 2px;
+    margin-left: 5px;
+    z-index: 9999;
+}
+
+#txt .i3 {
+    width: 4px;
+    margin-left: 4px;
+    z-index: 9999;
+}
+
+#txt .i4 {
+    width: 6px;
+    margin-left: 3px;
+    z-index: 9999;
+}
+
+#txt .i5 {
+    width: 8px;
+    margin-left: 2px;
+    z-index: 9999;
+}
+
+#txt .i6 {
+    width: 10px;
+    margin-left: 1px;
+    margin-top: -1px;
+    z-index: 9999;
+}
+
+#txt .info {
+    border-width: 0 1px;
+    color: #333;
+    padding: 5px;
+    z-index: 9999;
+}
+
+/*电子放大*/
+canvas#canvas-enlarge.show {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 99999;
+}
+
+/*时间戳*/
+canvas.timeline {
+    width: 100%;
+}
+
+.zoom {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.zoom em {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.enlarge,
+.narrow {
+    background: url("../img/zoom.png") no-repeat;
+}
+
+.enlarge {
+    background-position: -5px -5px;
+}
+
+.narrow {
+    background-position: -48px -5px;
+}
+
+.enlarge:hover {
+    background-position: -27px -5px;
+}
+
+.narrow:hover {
+    background-position: -69px -5px;
+}
+
+/*加载loading*/
+.loading {
+    position: absolute;
+    left: 325px;
+    top: 205px;
+    display: none;
+}
+
+/*设备信息区*/
+.device-info {
+    margin: 10px 0;
+}
+
+.device-info label {
+    width: 186px;
+    text-align: right;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/*按钮区*/
+.btn-block {
+    margin: 5px 0;
+}
+
+/*回放区*/
+.playback-block {
+    display: none;
+    width: 722px;
+    position: relative;
+}
+
+.ui-datepicker {
+    position: absolute;
+}
+
+/* 码流 */
+.stream-block {
+    display: none;
+}
+
+/*按钮样式*/
+.J-ptz-red {
+    color: red;
+}
+
+.J-ptz-green {
+    color: green;
+}
+
+.status {
+    margin-right: 10px;
+}
